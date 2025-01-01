@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Account</title>
+    <style>
+        /* Global Styling */
+        body {
+    font-family: 'Arial', sans-serif;
+    background-color: #fff; /* White background */
+    color: #000; /* Black text */
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Heading Styling */
+h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #000; /* Black text */
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* Form Styling */
+form {
+    width: 300px;
+    margin: 2rem;
+    padding: 20px;
+    background-color: #f0f0f0; /* Light gray for contrast */
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Black shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+form:hover {
+    transform: translateY(-5px); /* Lift form on hover */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+}
+
+/* Input Field Styling */
+input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 4px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    background-color: #fff; /* White background */
+    color: #000; /* Black text */
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+input:focus {
+    border-color: #000; /* Black border on focus */
+    background-color: #f0f0f0; /* Slightly lighter background on focus */
+}
+
+input::placeholder {
+    color: #888; /* Light gray placeholder */
+}
+
+/* Button Styling */
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #000; /* Black background */
+    color: #fff; /* White text */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+    background-color: #fff; /* White background on hover */
+    color: #000; /* Black text on hover */
+    transform: scale(1.05); /* Slight zoom on hover */
+}
+
+button:active {
+    transform: scale(0.95); /* Slight shrink on click */
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    form {
+        width: 90%;
+    }
+}
+    </style>
+</head>
+<body>
+  <h3>To delete this user : <%= user.email %> , enter the password</h3>
+  <form method="post" action="/user/<%= user.id%>?_method=DELETE">
+    <input placeholder="enter password" name="password" />
+    <button>Delete</button>
+  </form>
+</body>
+</html>

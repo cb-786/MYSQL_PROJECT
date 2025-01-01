@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add New User</title>
+    <style>
+      /* General Body Styling */
+/* Body Styling */
+body {
+  background-color: white;
+  color: black;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+/* Card Styling */
+.card {
+  background-color: #e6e6e6;
+  padding: 3rem; /* Increased padding */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  animation: fadeIn 1s ease-in-out;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  max-width: 600px; /* Added max-width */
+  width: 100%; /* Ensure it takes full width up to max-width */
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+}
+
+/* Form Styling */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* Increased gap */
+}
+
+/* Input Styling */
+input {
+  padding: 0.75rem; /* Increased padding */
+  border: 1px solid #000000;
+  border-radius: 5px;
+  background-color: #cccccc;
+  color: black;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  font-size: 1rem; /* Increased font size */
+}
+
+input:focus {
+  border-color: #333333;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+  outline: none;
+}
+
+/* Button Styling */
+button {
+  padding: 0.75rem; /* Increased padding */
+  background-color: #000000;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  font-size: 1rem; /* Increased font size */
+}
+
+button:hover {
+  background-color: #333333;
+  transform: scale(1.05);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+  .card {
+    padding: 4rem; /* Further increased padding for larger screens */
+    max-width: 800px; /* Increased max-width for larger screens */
+  }
+
+  input {
+    padding: 1rem; /* Further increased padding for larger screens */
+    font-size: 1.2rem; /* Further increased font size for larger screens */
+  }
+
+  button {
+    padding: 1rem; /* Further increased padding for larger screens */
+    font-size: 1.2rem; /* Further increased font size for larger screens */
+  }
+
+  form {
+    gap: 2rem; /* Further increased gap for larger screens */
+  }
+}
+    </style>
+  </head>
+  <body>
+    <form action="/user/new" method="POST">
+      <input name="email" type="email" placeholder="enter email" />
+      <input name="username" type="text" placeholder="enter usernmae" />
+      <input name="password" type="password" placeholder="enter password" />
+      <button>Submit</button>
+    </form>
+  </body>
+</html>

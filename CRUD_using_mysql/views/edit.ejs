@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>edit data</title>
+    <style>
+        /* General Body Styling */
+body {
+    background-color: #ffffff;
+    color: #000000;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Card Effect for the Form */
+form {
+    background-color: #ffffff;
+    border: 1px solid #000000;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 300px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 1rem;
+}
+
+/* Hover Effect for the Form */
+form:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Heading Styling */
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    color: #000000;
+}
+
+/* Input Field Styling */
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 15px;
+   
+    border: 1px solid #000000;
+    border-radius: 5px;
+    background-color: #ffffff;
+    color: #000000;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Input Field Focus Effect */
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border-color: #000000;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    outline: none;
+}
+
+/* Button Styling */
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #000000;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Button Hover Effect */
+button:hover {
+    background-color: #333333;
+    transform: scale(1.05);
+}
+
+/* Button Active Effect */
+button:active {
+    background-color: #000000;
+    transform: scale(0.95);
+}
+    </style>
+</head>
+<body>
+    <h2>you are about to make an edit to the profile of  <%= user.username %> </h2>
+    <form method="POST" action= "/users/<%=user.id%>?_method=PATCH">
+       
+        <input placeholder="new username" type="text" name="username"><br>
+        <input placeholder="enter previous password" type="password" name="password"><br>
+        <button>edit</button><br>
+    </form>
+    
+</body>
+</html>

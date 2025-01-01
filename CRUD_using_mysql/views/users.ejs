@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>All Users</title>
+    <style>
+      /* General Styling */
+      body {
+    font-family: Arial, sans-serif;
+    background-color: #fff; /* Changed to white */
+    color: #000; /* Changed to black */
+    margin: 0;
+    padding: 20px;
+}
+
+h2 {
+    color: #000; /* Changed to black */
+    text-align: center;
+    animation: fadeIn 1s ease-in-out;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    animation: slideIn 1s ease-in-out;
+}
+
+th, td {
+    border: 1px solid #000; /* Changed to black */
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background-color: #000; /* Changed to black */
+    color: #fff; /* Changed to white */
+}
+
+tr {
+    transition: background-color 0.3s ease;
+}
+
+tr:hover {
+    background-color: #f0f0f0; /* Changed to light gray */
+}
+
+button {
+    background-color: #000; /* Changed to black */
+    color: #fff; /* Changed to white */
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+    background-color: #333; /* Changed to dark gray */
+    transform: scale(1.1);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Form Styling */
+form {
+    display: inline-block;
+    margin: 5px;
+}
+
+/* Edit and Delete Buttons */
+td form button {
+    background-color: #fff; /* Changed to white */
+    color: #000; /* Changed to black */
+    border: 1px solid #000; /* Changed to black */
+}
+
+td form button:hover {
+    background-color: #000; /* Changed to black */
+    color: #fff; /* Changed to white */
+}
+
+      /* Animations */
+     
+
+      /* Form Styling */
+      
+    </style>
+  </head>
+  <body>
+    <form method="GET" action="/user/new">
+      <button>Add New User</button>
+    </form>
+
+    <h2>List of all users</h2>
+    <table>
+      <tr>
+        <th>Id</th>
+        <th>Email</th>
+        <th>Username</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+      <% for(user of users) { %>
+      <tr>
+        <td><%= user.id %></td>
+        <td><%= user.email %></td>
+        <td><%= user.username %></td>
+        <td>
+          <form method="get" action="/user/<%=user.id%>/edit">
+            <button>Edit username</button>
+          </form>
+        </td>
+        <td>
+          <form method="get" action="/user/<%=user.id%>/delete">
+            <button>Delete</button>
+          </form>
+        </td>
+      </tr>
+      <% } %>
+    </table>
+  </body>
+</html>
